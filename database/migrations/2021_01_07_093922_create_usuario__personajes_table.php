@@ -15,7 +15,7 @@ class CreateUsuarioPersonajesTable extends Migration
     {
         Schema::create('usuario__personajes', function (Blueprint $table) {
             $table->increments('id');
-            $table->inetger('valoracion');//nulo
+            $table->integer('valoracion');//nulo
             $table->boolean('favorito');//nulo 
             $table->unsignedInteger('idUsuario');
             $table->foreign('idUsuario')->references('id')->on('users');
