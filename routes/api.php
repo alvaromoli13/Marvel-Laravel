@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
 
+Route::resource('sagas', 'SagaController');
+
 
 Route::middleware('auth:api')->group( function () {
     
