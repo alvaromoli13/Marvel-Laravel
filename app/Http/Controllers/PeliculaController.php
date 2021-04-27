@@ -9,8 +9,8 @@ class PeliculaController extends Controller
 {
     public function index()
     {
-        $offers = Pelicula::all();
-        return response()->json(['Ofertas' => $offers->toArray()]);  
+        $peliculas = Pelicula::all();
+        return response()->json(['Peliculas' => $peliculas->toArray()]);  
     }
 
     // , $this->successStatus
@@ -25,23 +25,17 @@ class PeliculaController extends Controller
     {
         $this->validate(request(), [
             'nombre' => 'required| max:100',
-            'description' => 'required| max:100',
-            'assessment' => 'required| max:100',
-            'enterprise_id' => 'required| max:100',
-            'start_date' => 'required| max:100',
-            'start_time' => 'required| max:100',
-            'finish_time' => 'required| max:100',
-            'music_direct' => 'required| max:100',
-            'sport_direct' => 'required| max:100',
-
+            'idSaga' => 'required',
+            'estreno' => 'required',
+            'imagen' => 'required| max:100',
+            'sinopsis' => 'required',
+            'valoracion' => 'required| max:100',
         ]);
 
-        Pelicula::insert(['name'=>request()->name, 'description'=>request()->description, 'assessment'=>request()->assessment, 
-        'enterprise_id'=>request()->enterprise_id, 'start_date'=>request()->start_date, 'start_time'=>request()->start_time,
-        'finish_time'=>request()->finish_time,  
-        'music_direct'=>request()->music_direct, 'sport_direct'=>request()->sport_direct]);
+        Pelicula::insert(['nombre'=>request()->nombre, 'idSaga'=>request()->idSaga, 'estreno'=>request()->estreno, 
+        'imagen'=>request()->imagen, 'sinopsis'=>request()->sinopsis, 'valoracion'=>request()->valoracion]);
 
-        return response()->json(['Oferta' => 'Dato guardado'], 200);
+        return response()->json(['Pelicula' => 'Dato guardado'], 200);
     }
 
     /**
@@ -52,9 +46,9 @@ class PeliculaController extends Controller
      */
     public function show($id)
     {
-        $offer = Pelicula::where('id', '=', $id)->with('Enterprise')->get();
+        $pelicula = Pelicula::where('id', '=', $id)->get();
 
-        return response()->json(['Oferta' => $offer]);
+        return response()->json(['Pelicula' => $pelicula]);
     }
 
     
@@ -68,10 +62,10 @@ class PeliculaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datosOferta = request()->except(['_token', '_method']);
-        Pelicula::where('id','=',$id)->update($datosOferta);
+        $datosPelicula = request()->except(['_token', '_method']);
+        Pelicula::where('id','=',$id)->update($datosPelicula);
 
-        return response()->json(['Oferta' => 'Dato guardado'], 200);
+        return response()->json(['Pelicula' => 'Dato guardado'], 200);
     }
 
     /**
@@ -82,10 +76,9 @@ class PeliculaController extends Controller
      */
     public function destroy($id)
     {
-        $oferta = Pelicula::where('id',$id);
-        $oferta->delete();
-        // offer::destroy($oferta);
+        $pelicula = Pelicula::where('id',$id);
+        $pelicula->delete();
 
-        return response()->json(['Oferta' => 'Oferta Eliminada'], 200);
+        return response()->json(['Pelicula' => 'Pelicula Eliminada'], 200);
     }
 }

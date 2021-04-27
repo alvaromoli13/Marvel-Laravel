@@ -60,7 +60,7 @@ class SagaController extends Controller
         $datosSagas = request()->except(['_token', '_method']);
         Saga::where('id','=',$id)->update($datosSagas);
 
-        return response()->json(['Oferta' => 'Dato guardado'], 200);
+        return response()->json(['Saga' => 'Dato guardado'], 200);
     }
 
     /**
@@ -75,6 +75,6 @@ class SagaController extends Controller
         $saga->delete();
         // offer::destroy($oferta);
 
-        return response()->json(['Oferta' => 'Oferta Eliminada'], 200);
+        return response()->json(['Saga' => 'Oferta Eliminada'], 200);
     }
 }
