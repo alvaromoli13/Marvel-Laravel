@@ -18,6 +18,9 @@ Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
 
 Route::resource('sagas', 'SagaController');
+Route::resource('comentarios', 'ComentarioController');
+Route::resource('personajes', 'PersonajeController');
+Route::resource('peliculas', 'PeliculaController');
 
 
 Route::middleware('auth:api')->group( function () {
