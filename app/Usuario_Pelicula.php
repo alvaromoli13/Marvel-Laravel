@@ -9,6 +9,6 @@ class Usuario_Pelicula extends Model
     protected $table = 'usuario_peliculas';
 
     protected $fillable = [
-        'id', 'valoracion', 'favorito', 'idUsuario', 'idPelicula'
+        'id', 'favorito', 'idUsuario', 'idPelicula'
     ];
 }

@@ -9,6 +9,6 @@ class Personaje extends Model
     protected $table = 'personajes';
 
     protected $fillable = [
-        'id', 'nombre', 'descripcion', 'valoracion', 'imagen', 'idSaga'
+        'id', 'nombre', 'descripcion', 'imagen', 'idSaga'
     ];
 }

@@ -15,7 +15,6 @@ class CreateUsuarioPeliculasTable extends Migration
     {
         Schema::create('usuario__peliculas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('valoracion')->nullable();//nulo
             $table->boolean('favorito')->nullable();//nulo 
             $table->unsignedInteger('idUsuario');
             $table->foreign('idUsuario')->references('id')->on('users');

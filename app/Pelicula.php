@@ -9,6 +9,6 @@ class Pelicula extends Model
     protected $table = 'peliculas';
 
     protected $fillable = [
-        'id', 'nombre', 'idSaga', 'estreno', 'imagen', 'sinopsis', 'valoracion'
+        'id', 'nombre', 'idSaga', 'estreno', 'imagen', 'sinopsis'
     ];
 }

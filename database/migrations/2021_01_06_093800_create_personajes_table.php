@@ -17,7 +17,6 @@ class CreatePersonajesTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->text('descripcion');
-            $table->integer('valoracion');
             $table->string('imagen');
             $table->unsignedInteger('idSaga');
             $table->foreign('idSaga')->references('id')->on('sagas');

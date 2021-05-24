@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeliculasTable extends Migration
+class CreatePeliculasGuardadasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreatePeliculasTable extends Migration
      */
     public function up()
     {
-        Schema::create('peliculas', function (Blueprint $table) {
+        Schema::create('peliculas_guardadas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->unsignedInteger('idSaga');
-            $table->foreign('idSaga')->references('id')->on('sagas');
-            $table->date('estreno');
-            $table->string('imagen');
-            $table->text('sipnosis');
+            $table->boolean('guardado')->nullable();//nulo 
+            $table->unsignedInteger('idUsuario');
+            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->unsignedInteger('idPelicula');
+            $table->foreign('idPelicula')->references('id')->on('peliculas');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -33,6 +32,6 @@ class CreatePeliculasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peliculas');
+        Schema::dropIfExists('peliculas_guardadas');
     }
 }
