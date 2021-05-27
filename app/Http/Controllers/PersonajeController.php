@@ -25,13 +25,12 @@ class PersonajeController extends Controller
     {
         $this->validate(request(), [
             'nombre' => 'required| max:100',
-            'descripcion' => 'required| max:150',
-            'valoracion' => 'required',
+            'descripcion' => 'required|',
             'imagen' => 'required|',
             'idSaga' => 'required',
         ]);
 
-        Personaje::insert(['nombre'=>request()->nombre, 'descripcion'=>request()->descripcion, 'valoracion'=>request()->valoracion, 
+        Personaje::insert(['nombre'=>request()->nombre, 'descripcion'=>request()->descripcion, 
         'imagen'=>request()->imagen, 'idSaga'=>request()->idSaga]);
 
         return response()->json(['Personaje' => 'Dato guardado'], 200);
