@@ -21,6 +21,7 @@ Route::resource('sagas', 'SagaController');
 Route::resource('comentarios', 'ComentarioController');
 Route::resource('personajes', 'PersonajeController');
 Route::resource('peliculas', 'PeliculaController');
+Route::get('comentariosPeli/{idPelicula}', 'ComentarioController@ComentarioAsociadoPelicula')
 
 
 Route::middleware('auth:api')->group( function () {

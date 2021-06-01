@@ -36,6 +36,8 @@ class RegisterController extends Controller {
         $user = Auth::user();
         // Creamos un token de acceso para ese usuario
         $success['token'] = $user->createToken('MyApp')->accessToken;
+        $success['id'] = $user->id;
+        $success['admin'] = $user->admin;
         // Y lo devolvemos en el objeto 'json'
         return response()->json(['success' => $success], $this->successStatus);
         }

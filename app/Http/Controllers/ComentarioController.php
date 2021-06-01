@@ -80,7 +80,7 @@ class ComentarioController extends Controller
     }
 
     public function ComentarioAsociadoPelicula($idPelicula){
-        $comentario = Comentario::where('idPelicula', '=', $idPelicula)->get();
+        $comentario = Comentario::where('idPelicula', '=', $idPelicula)->where('bloqueado', '=', 0)->with('dueño')->get();
         return response()->json(['Comentario' => $comentario]);
     }
 }
