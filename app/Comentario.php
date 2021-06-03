@@ -12,7 +12,7 @@ class Comentario extends Model
         'id', 'descripcion', 'idUsuario', 'idPelicula', 'bloqueado'
     ];
 
-    public function dueño(){
+    public function dueno(){
         return $this->belongsTo(User::class, 'idUsuario');
     }
 }
