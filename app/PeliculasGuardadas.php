@@ -11,4 +11,8 @@ class PeliculasGuardadas extends Model
     protected $fillable = [
         'id', 'guardado', 'idUsuario', 'idPelicula'
     ];
+
+    public function pelis(){
+        return $this->belongsTo(Pelicula::class, 'idPelicula');
+    }
 }

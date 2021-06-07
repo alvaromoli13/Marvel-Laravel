@@ -11,4 +11,8 @@ class PersonajeGuardado extends Model
     protected $fillable = [
         'id', 'favorito', 'idUsuario', 'idPersonaje'
     ];
+
+    public function personajes(){
+        return $this->belongsTo(Personaje::class, 'idPersonaje');
+    }
 }

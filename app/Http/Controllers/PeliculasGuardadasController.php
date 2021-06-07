@@ -90,4 +90,9 @@ class PeliculasGuardadasController extends Controller
 
         return response()->json(['MeGusta' => 'Eliminado'], 200);
     }
+
+    public function peliculasAsociadas($idUsuario){
+        $guardado = PeliculasGuardadas::where('idUsuario', '=', $idUsuario)->with(['pelis'])->get();
+        return response()->json(['Guardado' => $guardado]);
+    }
 }

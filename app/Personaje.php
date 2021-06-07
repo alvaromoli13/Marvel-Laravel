@@ -11,4 +11,9 @@ class Personaje extends Model
     protected $fillable = [
         'id', 'nombre', 'descripcion', 'imagen', 'idSaga'
     ];
+
+    public function guardados()
+    {
+        return $this->hasMany('App\PersonajeGuardado');
+    }
 }

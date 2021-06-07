@@ -11,4 +11,9 @@ class Pelicula extends Model
     protected $fillable = [
         'id', 'nombre', 'idSaga', 'estreno', 'imagen', 'sinopsis'
     ];
+
+    public function guardados()
+    {
+        return $this->hasMany('App\PersonajeGuardado');
+    }
 }

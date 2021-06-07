@@ -37,10 +37,13 @@ Route::delete('eliminarMPeli/{idPelicula}.{idUsuario}', 'UsuarioPeliculaControll
 Route::resource('guardadoPersonajes', 'PersonajeGuardadoController');
 Route::get('guardadoPersonaje/{idPersonaje}', 'PersonajeGuardadoController@guardadosTotales');
 Route::delete('eliminarGPersonaje/{idPersonaje}.{idUsuario}', 'PersonajeGuardadoController@eliminar');
+Route::get('personajesAsociados/{idUsuario}', 'PersonajeGuardadoController@personajesAsociados');
+
 
 Route::resource('guardadoPeliculas', 'PeliculasGuardadasController');
 Route::get('guardadoPelicula/{idPelicula}', 'PeliculasGuardadasController@guardadosTotales');
 Route::delete('eliminarGPelicula/{idPelicula}.{idUsuario}', 'PeliculasGuardadasController@eliminar');
+Route::get('peliculasAsociadas/{idUsuario}', 'PeliculasGuardadasController@peliculasAsociadas');
 
 
 

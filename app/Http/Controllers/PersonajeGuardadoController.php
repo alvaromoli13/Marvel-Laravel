@@ -90,4 +90,9 @@ class PersonajeGuardadoController extends Controller
 
         return response()->json(['MeGusta' => 'Eliminado'], 200);
     }
+
+    public function personajesAsociados($idUsuario){
+        $guardado = PersonajeGuardado::where('idUsuario', '=', $idUsuario)->with(['personajes'])->get();
+        return response()->json(['Guardado' => $guardado]);
+    }
 }
