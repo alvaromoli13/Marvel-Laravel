@@ -16,4 +16,9 @@ class Pelicula extends Model
     {
         return $this->hasMany('App\PersonajeGuardado');
     }
+
+    public function meGusta()
+    {
+        return $this->hasMany('App\Usuario_Pelicula');
+    }
 }

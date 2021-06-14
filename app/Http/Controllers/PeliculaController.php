@@ -28,11 +28,11 @@ class PeliculaController extends Controller
             'idSaga' => 'required',
             'estreno' => 'required',
             'imagen' => 'required| max:100',
-            'sinopsis' => 'required',
+            'sipnosis' => 'required',
         ]);
 
         Pelicula::insert(['nombre'=>request()->nombre, 'idSaga'=>request()->idSaga, 'estreno'=>request()->estreno, 
-        'imagen'=>request()->imagen, 'sinopsis'=>request()->sinopsis]);
+        'imagen'=>request()->imagen, 'sipnosis'=>request()->sipnosis]);
 
         return response()->json(['Pelicula' => 'Dato guardado'], 200);
     }
@@ -80,4 +80,5 @@ class PeliculaController extends Controller
 
         return response()->json(['Pelicula' => 'Pelicula Eliminada'], 200);
     }
+
 }
